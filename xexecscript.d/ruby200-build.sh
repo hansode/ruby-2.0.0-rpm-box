@@ -30,7 +30,7 @@ chroot $1 su - ${devel_user} <<'EOS'
   cp -f /tmp/ruby-2.0.0-rpm/ruby200.spec ~/rpmbuild/SPECS/ruby200.spec
 
   cd ~/rpmbuild/SOURCES; pwd
-  wget http://ftp.ruby-lang.org/pub/ruby/2.0/ruby-2.0.0-p${rubyminorver}.tar.gz
+  wget http://ftp.ruby-lang.org/pub/ruby/2.0/ruby-2.0.0-${rubyminorver}.tar.gz
 
   rpmbuild -bb ~/rpmbuild/SPECS/ruby200.spec
 EOS
@@ -38,6 +38,6 @@ EOS
 ## root
 
 chroot $1 $SHELL -ex <<EOS
-  rpm -ivh /home/${devel_user}/rpmbuild/RPMS/*/ruby-2.0.0.*.rpm
+  rpm -ivh /home/${devel_user}/rpmbuild/RPMS/*/ruby-2.0.0p*.rpm
   gem install bundler --no-rdoc --no-ri
 EOS
