@@ -1,4 +1,8 @@
 # Travis CI does not support bash. :'(
 language: c
 script: make test
-install: make yum
+install: make
+# http://about.travis-ci.org/docs/user/build-configuration/#Installing-Packages-Using-apt
+before_install:
+  - "sudo apt-get update -qq"
+  - "sudo apt-get -qq install yum"
