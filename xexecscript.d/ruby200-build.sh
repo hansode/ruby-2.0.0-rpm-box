@@ -39,5 +39,4 @@ EOS
 
 chroot $1 $SHELL -ex <<EOS
   rpm -ivh /home/${devel_user}/rpmbuild/RPMS/*/ruby-2.0.0p*.rpm
-  gem install bundler --no-rdoc --no-ri
 EOS
